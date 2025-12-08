@@ -1,0 +1,169 @@
+/**
+ * Address Search Component Styles
+ * Address autocomplete with search status indicators
+ */
+
+/* ============================================
+   Address Input Container
+   ============================================ */
+.address-search-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+.address-search-container label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* ============================================
+   Address Input Field
+   ============================================ */
+#address {
+    width: 100%;
+    padding: var(--spacing-sm) 40px var(--spacing-sm) var(--spacing-sm);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-body);
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition-fast),
+                box-shadow var(--transition-fast);
+    outline: none;
+}
+
+#address::placeholder {
+    color: var(--color-text-muted);
+}
+
+#address:hover {
+    border-color: var(--color-primary);
+}
+
+#address:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(234, 102, 102, 0.1);
+}
+
+/* ============================================
+   Search Status Indicator
+   ============================================ */
+.search-status {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    display: none;
+    pointer-events: none;
+}
+
+/* Loading Spinner */
+.search-status.loading {
+    display: block;
+    border: 2px solid var(--color-bg-medium);
+    border-top-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success Checkmark */
+.search-status.success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-success);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.search-status.success::before {
+    content: '✓';
+}
+
+/* ============================================
+   Suggestions Dropdown
+   ============================================ */
+#suggestions {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-xs) 0 0 0;
+    background-color: var(--color-bg-body);
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-sm);
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-md);
+}
+
+#suggestions:empty {
+    display: none;
+}
+
+/* Suggestion Items */
+#suggestions li {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color var(--transition-fast);
+}
+
+#suggestions li:last-child {
+    border-bottom: none;
+}
+
+/* Hover state for clickable items */
+#suggestions li:not([style*="cursor: default"]):hover {
+    background-color: var(--color-bg-light);
+}
+
+/* Active/Selected state */
+#suggestions li:not([style*="cursor: default"]):active {
+    background-color: var(--color-bg-medium);
+}
+
+/* Non-clickable items (e.g., "No results" message) */
+#suggestions li[style*="cursor: default"] {
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+/* ============================================
+   Scrollbar Styling (Webkit browsers)
+   ============================================ */
+#suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+#suggestions::-webkit-scrollbar-track {
+    background: var(--color-bg-light);
+    border-radius: var(--radius-sm);
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+    background: var(--color-border-dark);
+    border-radius: var(--radius-sm);
+}
+
+#suggestions::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary);
+}
+

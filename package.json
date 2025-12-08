@@ -1,0 +1,29 @@
+{
+  "name": "location-weather-lookup",
+  "version": "1.0.0",
+  "description": "A vanilla JavaScript application for looking up historical weather data at specific addresses and times",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AustinSteil/location-weather-lookup.git"
+  },
+  "keywords": [
+    "weather",
+    "geolocation",
+    "vanilla-js",
+    "openstreetmap",
+    "open-meteo"
+  ],
+  "author": "Austin Steil <austinsteil21@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AustinSteil/location-weather-lookup/issues"
+  },
+  "homepage": "https://github.com/AustinSteil/location-weather-lookup#readme"
+}
+
