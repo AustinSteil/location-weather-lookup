@@ -24,10 +24,13 @@ export class AddressSearch {
     }
 
     render() {
+        // autocomplete="off" prevents browser from showing native autocomplete dropdown
+        // which would cover our custom address suggestions and require users to manually
+        // clear the browser's prefilled suggestions before seeing our results
         this.container.innerHTML = `
             <label for="address">Enter address:</label>
             <div class="input-wrapper">
-                <input type="text" id="address" placeholder="Start typing an address...">
+                <input type="text" id="address" placeholder="Start typing an address..." autocomplete="off">
                 <span id="searchStatus" class="search-status"></span>
             </div>
             <ul id="suggestions"></ul>

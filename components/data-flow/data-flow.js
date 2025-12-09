@@ -6,15 +6,23 @@
 export class DataFlow {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
+        this.isVisible = false; // Default to hidden
         this.render();
+        this.attachEventListeners();
     }
 
     render() {
         this.container.innerHTML = `
-            <h2>Data Flow</h2>
+            <div class="data-flow-header">
+                <h2>Data Flow</h2>
+                <button id="toggleDataFlow" class="toggle-btn" aria-label="Toggle developer information">
+                    <span class="toggle-text">Show Developer Info</span>
+                </button>
+            </div>
 
-            <!-- Phase 1: IP Geolocation -->
-            <div class="flow-phase">
+            <div id="dataFlowContent" class="data-flow-content hidden">
+                <!-- Phase 1: IP Geolocation -->
+                <div class="flow-phase">
                 <div class="phase-header">
                     <span class="phase-number">1</span>
                     <div class="phase-info">
@@ -60,7 +68,30 @@ export class DataFlow {
                 </div>
                 <pre class="code-snippet" id="weatherData"><code>Weather data will appear after selecting an address...</code></pre>
             </div>
+            </div>
         `;
+    }
+
+    attachEventListeners() {
+        const toggleBtn = document.getElementById('toggleDataFlow');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => this.toggleVisibility());
+        }
+    }
+
+    toggleVisibility() {
+        this.isVisible = !this.isVisible;
+        const content = document.getElementById('dataFlowContent');
+        const toggleBtn = document.getElementById('toggleDataFlow');
+        const toggleText = toggleBtn.querySelector('.toggle-text');
+
+        if (this.isVisible) {
+            content.classList.remove('hidden');
+            toggleText.textContent = 'Hide Developer Info';
+        } else {
+            content.classList.add('hidden');
+            toggleText.textContent = 'Show Developer Info';
+        }
     }
 
     formatJSON(obj, maxResults = null) {

@@ -63,9 +63,12 @@ class App {
     async fetchWeather() {
         if (!this.selectedAddress) return;
 
+        // Show loading spinner
+        this.weatherDisplay.showLoading();
+
         try {
             const { date, time } = this.dateTimePicker.getDateTime();
-            
+
             const weatherData = await getWeatherData(
                 this.selectedAddress.latitude,
                 this.selectedAddress.longitude,
@@ -75,7 +78,7 @@ class App {
 
             // Display weather
             this.weatherDisplay.render(weatherData);
-            
+
             // Update data flow visualization
             this.dataFlow.updateWeatherData(weatherData);
         } catch (err) {

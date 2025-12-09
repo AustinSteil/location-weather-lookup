@@ -153,3 +153,44 @@ label {
     border: 0;
 }
 
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    body {
+        padding: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: var(--spacing-md);
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: var(--spacing-md);
+    }
+
+    h3 {
+        font-size: var(--font-size-base);
+    }
+}
+

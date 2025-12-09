@@ -167,3 +167,40 @@
     background: var(--color-text-secondary);
 }
 
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    #suggestions {
+        max-height: 300px;
+    }
+
+    #suggestions li {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    #address {
+        font-size: var(--font-size-md);
+        padding: 12px 40px 12px 12px;
+    }
+
+    #suggestions {
+        max-height: 250px;
+        font-size: var(--font-size-md);
+    }
+
+    #suggestions li {
+        padding: 12px var(--spacing-md);
+        font-size: var(--font-size-md);
+    }
+
+    .search-status {
+        right: 12px;
+    }
+}
+
